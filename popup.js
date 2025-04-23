@@ -3,7 +3,7 @@ document.getElementById("search").onclick = function() {
     if (!q) return;
     const query = encodeURIComponent(q);
     const urls = [
-      `https://www.google.com/search?q=site:instagram.com+${query}`,
+      `https://www.google.com/search?q=site:instagram.com+"${query}"`,
       `https://www.tiktok.com/search/user?q=${query}`,
       `https://www.facebook.com/search/people/?q=${query}`,
       `https://www.linkedin.com/search/results/people/?keywords=${query}`,
