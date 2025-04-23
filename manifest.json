@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "Social User Probe",
+    "version": "1.0",
+    "description": "Launches username queries across social platforms",
+    "permissions": ["tabs", "scripting", "activeTab"],
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
+  
