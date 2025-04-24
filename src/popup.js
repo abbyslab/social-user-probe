@@ -1,4 +1,4 @@
-import './contrib/js-yaml.min.js';
+import '../contrib/js-yaml.min.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const response = await fetch('./urls.yml');
