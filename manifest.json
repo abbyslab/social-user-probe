@@ -5,7 +5,7 @@
     "description": "Launches username queries across social platforms",
     "permissions": ["tabs", "scripting", "activeTab", "storage"],
     "action": {
-      "default_popup": "popup.html"
+      "default_popup": "src/popup.html"
     }
   }
   
