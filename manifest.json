@@ -3,7 +3,7 @@
     "name": "Social User Probe",
     "version": "1.0",
     "description": "Launches username queries across social platforms",
-    "permissions": ["tabs", "scripting", "activeTab"],
+    "permissions": ["tabs", "scripting", "activeTab", "storage"],
     "action": {
       "default_popup": "popup.html"
     }

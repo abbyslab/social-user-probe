@@ -1,23 +1,40 @@
-document.getElementById("search").onclick = function() {
-    const q = document.getElementById("query").value.trim();
+import './contrib/js-yaml.min.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const response = await fetch('./urls.yml');
+  const text = await response.text();
+  const data = jsyaml.load(text);
+
+  const input = document.getElementById("query");
+
+  chrome.storage.local.get("lastQuery", ({ lastQuery }) => {
+    if (lastQuery && input) input.value = lastQuery;
+  });
+
+  function createTabs(key, query) {
+    for (const u of data[key]) {
+      chrome.tabs.create({ url: u.replace('%q', query) });
+    }
+  }
+
+  function makeQuery(key) {
+    const q = input?.value?.trim();
     if (!q) return;
+
+    chrome.storage.local.set({ lastQuery: q });
+
     const query = encodeURIComponent(q);
-    const urls = [
-      `https://www.google.com/search?q=site:instagram.com+"${query}"`,
-      `https://www.tiktok.com/search/user?q=${query}`,
-      `https://www.facebook.com/search/people/?q=${query}`,
-      `https://www.linkedin.com/search/results/people/?keywords=${query}`,
-      `https://x.com/search?q=${query}&src=typed_query&f=user`,
-      `https://old.reddit.com/search/?q=${query}`,
-      `https://www.snapchat.com/explore/${query}`,
-      `https://pinterest.com/search/users/?q=${query}&filter_location=1&rs=content_type_filter`,
-      `https://www.twitch.tv/search?term=${query}`,
-      `https://steamcommunity.com/search/users/#text=${query}`,
-      `https://onlyfindersearch.com/${query}/profiles/`,
-      `https://github.com/search?q=${query}&type=users`,
-      `https://medium.com/search/users?q=${query}`,
-      `https://www.quora.com/search?q=${query}&type=profile`
-    ];
-    for (const u of urls) chrome.tabs.create({ url: u });
-  };
-  
+
+    if (key !== "all") {
+      createTabs(key, query);
+    } else {
+      for (const k of Object.keys(data)) {
+        createTabs(k, query);
+      }
+    }
+  }
+
+  for (const k of Object.keys(data)) {
+    document.getElementById(k)?.addEventListener('click', () => makeQuery(k));
+  }
+});

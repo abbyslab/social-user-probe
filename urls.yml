@@ -1,0 +1,41 @@
+---
+"main":
+- https://www.facebook.com/search/people/?q=%q
+- https://x.com/search?q=%q&src=typed_query&f=user
+- https://www.tiktok.com/search/user?q=%q
+- https://www.google.com/search?q=site:instagram.com+"%q"
+- https://www.instagram.com/explore/search/keyword/?q=%q
+- https://www.threads.net/search?q=%q
+- https://www.snapchat.com/explore/%q
+- https://www.linkedin.com/search/results/people/?keywords=%q
+- https://old.reddit.com/search/?q=%q
+
+"reading/writing":
+- https://scholar.google.com/scholar?q=%q
+- https://www.goodreads.com/search?q=%q&search_type=people&tab=people
+- https://medium.com/search/users?q=%q
+- https://www.quora.com/search?q=%q&type=profile
+
+"interests":
+- https://pinterest.com/search/users/?q=%q
+- https://www.flickr.com/search/people/?username=%q
+- https://www.google.com/search?q=site:deviantart.com+"%q"
+- https://www.twitch.tv/search?term=%q
+- https://steamcommunity.com/search/users/#text=%q
+- https://community.fandom.com/wiki/Special:Search?query=%q&scope=cross-wiki&contentType=&ns%5B0%5D=2
+- https://stackoverflow.com/search?q=user:"%q"
+- https://stackexchange.com/search?q=%q
+- https://github.com/search?q=%q&type=users
+
+"video/music":
+- https://soundcloud.com/search/people?q=%q
+- https://open.spotify.com/search/%q/users
+- https://www.youtube.com/results?search_query=%q&sp=EgIQAg%253D%253D
+- https://www.dailymotion.com/search/%q/channels
+- https://www.google.com/search?q=site:vimeo.com+"%q"
+- https://bandcamp.com/search?q=%q&item_type=f
+
+"other":
+- https://web.archive.org/web/20250000000000*/%q
+- https://onlyfindersearch.com/%q/profiles/
+- https://onlysearch.co/profiles?keyword=%q
